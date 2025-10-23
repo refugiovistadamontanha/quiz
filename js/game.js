@@ -177,7 +177,7 @@ class GameScene extends Phaser.Scene {
         });
 
         this.specialItems.children.iterate(item => {
-            if (item.getData('key') === 'especial-1' && !item.getData('isFleeing')) {
+            if (item.getData('key') === 'especial-14' && !item.getData('isFleeing')) {
                 const distanceX = Math.abs(this.player.x - item.x);
 
                 let fleeCount = item.getData('fleeCount');
@@ -268,7 +268,7 @@ class GameScene extends Phaser.Scene {
                 special.setData('key', nextItem.key);
                 special.setData('message', nextItem.message);
 
-                if (nextItem.key === 'especial-1') {
+                if (nextItem.key === 'especial-14') {
                     special.setData('isFleeing', false);  // flag para indicar se está fugindo
                     special.setData('fleeCount', 0);
                 }
