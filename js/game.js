@@ -74,7 +74,7 @@ class GameScene extends Phaser.Scene {
 
     create() {
         this.cameras.main.setBackgroundColor('#87CEEB');
-        showSceneTitleAndPause(this, 'Se leu mamou!', 1000);
+        showSceneTitleAndPause(this, 'Se leu, já sabe!', 500);
 
         this.lastSpecialScore = 0;  // Guarda o score no momento da última coleta especial
 
@@ -115,9 +115,9 @@ class GameScene extends Phaser.Scene {
         // Gatilhos para itens especiais
         this.specialItemTriggers = [
             { score: 5, key: 'especial-1', shown: false, collected: false, message: 'Após muitas mensagens e aproximação, abrimos nosso coração!' },
-            { score: 5, key: 'especial-2', shown: false, collected: false, message: 'Algumas mensagens no caderno' },
-            { score: 5, key: 'especial-3', shown: false, collected: false, message: 'Nossa primeira foto' },
-            { score: 5, key: 'especial-4', shown: false, collected: false, message: 'Talvez a primeira viagem (como eu era feio)' },
+            { score: 5, key: 'especial-2', shown: false, collected: false, message: 'Rolaram várias mensagens nos cadernos' },
+            { score: 5, key: 'especial-3', shown: false, collected: false, message: 'Tiramos nossa primeira foto' },
+            { score: 5, key: 'especial-4', shown: false, collected: false, message: 'Fizemos o primeiro passeio (como eu era feio)' },
             { score: 5, key: 'especial-5', shown: false, collected: false, message: 'Participamos de várias festas aleatórias' },
             { score: 5, key: 'especial-6', shown: false, collected: false, message: 'Entramos na UDESC' },
             { score: 5, key: 'especial-7', shown: false, collected: false, message: 'Saimos da UDESC' },
@@ -126,7 +126,7 @@ class GameScene extends Phaser.Scene {
             { score: 5, key: 'especial-10', shown: false, collected: false, message: 'Vimos ele ser construido' },
             { score: 5, key: 'especial-11', shown: false, collected: false, message: 'Passamos nosso primeiro natal' },
             { score: 5, key: 'especial-12', shown: false, collected: false, message: 'Adotamos um anjo' },
-            { score: 5, key: 'especial-13', shown: false, collected: false, message: 'Será que é um anjo?' },
+            { score: 5, key: 'especial-13', shown: false, collected: false, message: 'Será que é mesmo um anjo?' },
             { score: 15, key: 'especial-14', shown: false, collected: false, message: 'E agora? Qual é o próximo passo?' }
         ];
 
@@ -144,7 +144,7 @@ class GameScene extends Phaser.Scene {
 
         // ------------------ INTERFACE ------------------
         this.score = 0;
-        this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '25px', fill: '#000' });
+        this.scoreText = this.add.text(16, 16, 'Corações: 0', { fontSize: '25px', fill: '#000' });
 
         // ------------------ CONTROLE ------------------
         this.isPressing = false;
@@ -186,7 +186,7 @@ class GameScene extends Phaser.Scene {
                     item.setData('fleeCount', fleeCount);
                 }
 
-                const maxFleeCount = 2;
+                const maxFleeCount = 1;
 
                 if (distanceX < 150 && fleeCount < maxFleeCount) {  // limite de proximidade para fugir
                     item.setData('isFleeing', true);
@@ -304,7 +304,7 @@ class GameScene extends Phaser.Scene {
     collectItem(player, item) {
         item.destroy();
         this.score++;
-        this.scoreText.setText(`Score: ${this.score}`);
+        this.scoreText.setText(`Corações: ${this.score}`);
     }
 
     collectSpecialItem(player, item) {
